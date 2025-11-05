@@ -1,0 +1,21 @@
+@import "./styles/variables";
+@import "./styles/layout";
+@import "./styles/sidebar";
+
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: $bg-color;
+
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .page-content {
+      flex: 1;
+      padding: 2rem;
+      background: #f7f8fc;
+    }
+  }
+}

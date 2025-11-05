@@ -1,0 +1,12 @@
+@import "./_variables";
+@import "./_layout";
+@import "./_sidebar";
+@import "./_dashboard";
+@import "./_login";
+@import "./_buttons";
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: $gray-light;
+}

@@ -1,0 +1,99 @@
+@import "./variables";
+
+.reported-container {
+  padding: 30px 40px;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: "Inter", "Poppins", sans-serif;
+
+  .header {
+    margin-bottom: 25px;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+
+  .table-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+
+    thead {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: #fff;
+
+      th {
+        text-align: left;
+        padding: 14px 16px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #f3f8ff;
+        }
+
+        td {
+          padding: 14px 16px;
+          font-size: 14px;
+          color: #333;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    &.pending {
+      background: #fff4e5;
+      color: #ff9800;
+    }
+
+    &.resolved {
+      background: #e6ffed;
+      color: #22c55e;
+    }
+  }
+
+  .loading,
+  .error,
+  .empty-state {
+    text-align: center;
+    font-weight: 500;
+    margin-top: 40px;
+  }
+
+  .error {
+    color: #e63946;
+  }
+}
