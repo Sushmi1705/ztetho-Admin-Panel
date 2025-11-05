@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001/api/admin";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/api/admin";
 
 export const apiService = {
     // 🔹 Admin Login
