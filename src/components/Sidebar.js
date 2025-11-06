@@ -14,6 +14,7 @@ const Sidebar = () => {
         {/* <li><NavLink to="/reported-users">Reported Users</NavLink></li> */}
         <li><NavLink to="/help-support">Help & Support</NavLink></li>
         <li><NavLink to="/main-group">Main Group</NavLink></li>
+        <li><NavLink to="/news">News</NavLink></li>
       </ul>
     </div>
   );

@@ -1,9 +1,9 @@
-const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/api/admin";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3001/api";
 
 export const apiService = {
     // 🔹 Admin Login
     login: async (credentials) => {
-        const res = await fetch(`${BASE_URL}/login`, {
+        const res = await fetch(`${BASE_URL}/admin/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(credentials),
@@ -13,18 +13,18 @@ export const apiService = {
 
     // 🔹 Dashboard Stats
     getDashboard: async () => {
-        const res = await fetch(`${BASE_URL}/dashboard`);
+        const res = await fetch(`${BASE_URL}/admin/dashboard`);
         return await res.json();
     },
 
     // 🔹 Help & Support
     getHelpSupport: async () => {
-        const res = await fetch(`${BASE_URL}/help-support`);
+        const res = await fetch(`${BASE_URL}/admin/help-support`);
         return await res.json();
     },
 
     updateTicketStatus: async (ticketId, status, reply) => {
-        const res = await fetch(`${BASE_URL}/tickets/${ticketId}`, {
+        const res = await fetch(`${BASE_URL}/admin/tickets/${ticketId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status, reply }),
@@ -34,7 +34,7 @@ export const apiService = {
     },
 
     addTicketReply: async (ticketId, reply) => {
-        const res = await fetch(`${BASE_URL}/tickets/${ticketId}/reply`, {
+        const res = await fetch(`${BASE_URL}/admin/tickets/${ticketId}/reply`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ reply }),
@@ -46,18 +46,18 @@ export const apiService = {
     // 🔹 Get Reported Data (generic)
     // type: "posts" | "groups" | "news" | "users"
     getReported: async (type) => {
-        const res = await fetch(`${BASE_URL}/reported/${type}`);
+        const res = await fetch(`${BASE_URL}/admin/reported/${type}`);
         return await res.json();
     },
 
     // --- 🔹 Reported News ---
     getReportedNews: async () => {
-        const res = await fetch(`${BASE_URL}/reported/news`);
+        const res = await fetch(`${BASE_URL}/admin/reported/news`);
         return await res.json();
     },
 
     resolveNewsReport: async (newsId, reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/news/${newsId}/${reportId}/resolve`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/news/${newsId}/${reportId}/resolve`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -65,7 +65,7 @@ export const apiService = {
     },
 
     dismissNewsReport: async (newsId, reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/news/${newsId}/${reportId}/dismiss`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/news/${newsId}/${reportId}/dismiss`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -74,12 +74,12 @@ export const apiService = {
 
     // --- 🔹 Reported Groups ---
     getReportedGroups: async () => {
-        const res = await fetch(`${BASE_URL}/reported/groups`);
+        const res = await fetch(`${BASE_URL}/admin/reported/groups`);
         return await res.json();
     },
 
     resolveGroupReport: async (groupId, reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/groups/${groupId}/${reportId}/resolve`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/groups/${groupId}/${reportId}/resolve`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -87,7 +87,7 @@ export const apiService = {
     },
 
     dismissGroupReport: async (groupId, reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/groups/${groupId}/${reportId}/dismiss`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/groups/${groupId}/${reportId}/dismiss`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -96,12 +96,12 @@ export const apiService = {
 
     // --- 🔹 Reported Posts (common routes) ---
     getReportedPosts: async () => {
-        const res = await fetch(`${BASE_URL}/reported/posts`);
+        const res = await fetch(`${BASE_URL}/admin/reported/posts`);
         return await res.json();
     },
 
     resolveReported: async (reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/${reportId}/resolve`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/${reportId}/resolve`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -109,7 +109,7 @@ export const apiService = {
     },
 
     dismissReported: async (reportId) => {
-        const res = await fetch(`${BASE_URL}/reported/${reportId}/dismiss`, {
+        const res = await fetch(`${BASE_URL}/admin/reported/${reportId}/dismiss`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
         });
@@ -117,11 +117,11 @@ export const apiService = {
     },
     // ===== Main Groups =====
     getMainGroups: async () => {
-        const res = await fetch(`${BASE_URL}/main-groups`);
+        const res = await fetch(`${BASE_URL}/admin/main-groups`);
         return await res.json();
     },
     addMainGroup: async (data) => {
-        const res = await fetch(`${BASE_URL}/main-groups`, {
+        const res = await fetch(`${BASE_URL}/admin/main-groups`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -129,7 +129,7 @@ export const apiService = {
         return await res.json();
     },
     updateMainGroup: async (id, data) => {
-        const res = await fetch(`${BASE_URL}/main-groups/${id}`, {
+        const res = await fetch(`${BASE_URL}/admin/main-groups/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -137,9 +137,56 @@ export const apiService = {
         return await res.json();
     },
     deleteMainGroup: async (id) => {
-        const res = await fetch(`${BASE_URL}/main-groups/${id}`, {
+        const res = await fetch(`${BASE_URL}/admin/main-groups/${id}`, {
             method: "DELETE",
         });
+        return await res.json();
+    },
+
+    // --- 🔹 News Management ---
+    getAllNews: async () => {
+        const res = await fetch(`${BASE_URL}/news`);
+        if (!res.ok) throw new Error("Failed to fetch news");
+        return await res.json();
+    },
+
+    addNews: async (data) => {
+        const formData = new FormData();
+        for (const key in data) {
+            if (data[key] !== undefined && data[key] !== null) {
+                formData.append(key, data[key]);
+            }
+        }
+
+        const res = await fetch(`${BASE_URL}/news`, {
+            method: "POST",
+            body: formData,
+        });
+        if (!res.ok) throw new Error("Failed to add news");
+        return await res.json();
+    },
+
+    updateNews: async (id, data) => {
+        const formData = new FormData();
+        for (const key in data) {
+            if (data[key] !== undefined && data[key] !== null) {
+                formData.append(key, data[key]);
+            }
+        }
+
+        const res = await fetch(`${BASE_URL}/news/${id}`, {
+            method: "PUT",
+            body: formData,
+        });
+        if (!res.ok) throw new Error("Failed to update news");
+        return await res.json();
+    },
+
+    deleteNews: async (id) => {
+        const res = await fetch(`${BASE_URL}/news/${id}`, {
+            method: "DELETE",
+        });
+        if (!res.ok) throw new Error("Failed to delete news");
         return await res.json();
     },
 

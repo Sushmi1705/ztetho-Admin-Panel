@@ -12,6 +12,7 @@ import ReportedGroups from "./pages/ReportedGroups";
 import ReportedUsers from "./pages/ReportedUsers";
 import HelpSupport from "./pages/HelpSupport";
 import MainGroups from "./pages/mainGroup";
+import News from "./pages/News";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/reported-users" element={<ReportedUsers />} />
                 <Route path="/help-support" element={<HelpSupport />} />
                 <Route path="/main-group" element={<MainGroups />} />
+                <Route path="/news" element={<News />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
             </div>
