@@ -19,8 +19,8 @@ function App() {
 
   // Check localStorage token on initial render
   useEffect(() => {
-    localStorage.removeItem("adminToken"); // Remove token on app load (for testing)
-    setIsAuthenticated(false);
+    const token = localStorage.getItem("adminToken");
+    setIsAuthenticated(!!token);
   }, []);
 
   // Logout handler
@@ -47,7 +47,7 @@ function App() {
                 <Route path="/help-support" element={<HelpSupport />} />
                 <Route path="/main-group" element={<MainGroups />} />
                 <Route path="/news" element={<News />} />
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </div>
           </div>
@@ -55,6 +55,7 @@ function App() {
       ) : (
         <Routes>
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       )}
