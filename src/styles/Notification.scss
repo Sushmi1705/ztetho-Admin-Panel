@@ -1,0 +1,193 @@
+.notification-page {
+  padding: 20px 30px;
+
+  .page-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2f2f2f;
+    margin-bottom: 10px;
+  }
+
+  .add-btn {
+    background: #635bff;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(99, 91, 255, 0.3);
+
+    &:hover {
+      background: #5148e8;
+    }
+  }
+
+  /* ======================================================
+       FORM SECTION
+  ====================================================== */
+  .notification-form {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid #e3e6f0;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .col-md-6,
+    .col-md-12 {
+      flex: 1;
+      min-width: 48%;
+    }
+
+    .col-md-12 {
+      min-width: 100%;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #d8dbe5;
+      font-size: 14px;
+      transition: 0.2s;
+
+      &:focus {
+        border-color: #635bff;
+        box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.2);
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      border: none;
+      color: #333;
+
+      &:hover {
+        background: #d4d4d4;
+      }
+    }
+
+    .btn-primary {
+      background: #635bff;
+      border: none;
+
+      &:hover {
+        background: #5148e8;
+      }
+    }
+  }
+
+  /* ======================================================
+       NOTIFICATION GRID
+  ====================================================== */
+  .notification-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .notification-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #e3e6f0;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.07);
+    position: relative;
+    transition: 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 14px 34px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img {
+      height: 160px;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      background: #eef0ff;
+      color: #635bff;
+      padding: 5px 10px;
+      font-size: 11px;
+      border-radius: 6px;
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+
+    .actions {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 8px;
+
+      .btn-icon {
+        background: #f2f2f2;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background: #ddd;
+        }
+
+        &.delete {
+          background: #ffe4e4;
+          color: #cc3333;
+
+          &:hover {
+            background: #ffcccc;
+          }
+        }
+      }
+    }
+  }
+}

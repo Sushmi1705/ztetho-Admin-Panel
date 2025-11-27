@@ -190,4 +190,52 @@ export const apiService = {
         return await res.json();
     },
 
+    // ===== 🔔 Notification Management =====
+
+    getNotifications: async () => {
+        const res = await fetch(`${BASE_URL}/notifications`);
+        if (!res.ok) throw new Error("Failed to fetch notifications");
+        return await res.json();
+    },
+
+    addNotification: async (data) => {
+        const formData = new FormData();
+        for (const key in data) {
+            if (data[key] !== undefined && data[key] !== null) {
+                formData.append(key, data[key]);
+            }
+        }
+
+        const res = await fetch(`${BASE_URL}/notifications`, {
+            method: "POST",
+            body: formData,
+        });
+        if (!res.ok) throw new Error("Failed to add notification");
+        return await res.json();
+    },
+
+    updateNotification: async (id, data) => {
+        const formData = new FormData();
+        for (const key in data) {
+            if (data[key] !== undefined && data[key] !== null) {
+                formData.append(key, data[key]);
+            }
+        }
+
+        const res = await fetch(`${BASE_URL}/notifications/${id}`, {
+            method: "PUT",
+            body: formData,
+        });
+        if (!res.ok) throw new Error("Failed to update notification");
+        return await res.json();
+    },
+
+    deleteNotification: async (id) => {
+        const res = await fetch(`${BASE_URL}/notifications/${id}`, {
+            method: "DELETE",
+        });
+        if (!res.ok) throw new Error("Failed to delete notification");
+        return await res.json();
+    },
+
 };
